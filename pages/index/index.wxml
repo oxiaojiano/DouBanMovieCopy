@@ -1,0 +1,5 @@
+<view class="container">
+  <image class='avatar' src='/image/3.png'></image>
+  <text class="hello">HELLO, 于李建</text>
+  <text class='open' bindtap="onTap">开启小程序之旅</text>
+</view>

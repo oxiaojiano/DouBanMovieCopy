@@ -1,0 +1,20 @@
+
+.avatar{
+  width:70px;
+  height:70px;
+}
+.hello{
+  margin-top:103rpx;
+  font:bold 26rpx 'Microsoft YaHei';
+  }
+.open{
+  height:80rpx;
+  width:250rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 5px;
+  border:1px solid #405f80;
+  font-size:20rpx;
+  color:#405f80;
+  margin-top:212rpx;
+}
