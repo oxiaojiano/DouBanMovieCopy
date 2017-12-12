@@ -8,7 +8,9 @@ Page({
   data: {
     inTheaters:{},
     coming:{},
-    top250:{}
+    top250:{},
+    containerShow:true,
+    searchPanelShow: false
   },
 
   /**
@@ -24,6 +26,21 @@ Page({
     this.getRequestData(top250, "top250", "豆瓣Top250")
 
   },
+
+  // onCancelImgTap: function (event) {
+  //   this.setData({
+  //     containerShow: true,
+  //     searchPanelShow: false,
+  //     searchResult: {}
+  //   }
+  //   )
+  // },
+  onBindFocus: function (event) {
+    this.setData({
+      containerShow: false,
+      searchPanelShow: true
+    })
+  },
   getRequestData: function (url, settedKey, categoryTitle){
     var that = this
     wx.request({
@@ -35,7 +52,6 @@ Page({
         'content-type': 'application/xml' // 默认值
       },
       success: function (res) {
-        console.log(res)
         that.processDoubanData(res.data, settedKey, categoryTitle)
       },
       fail: function () {
@@ -45,7 +61,6 @@ Page({
   },
   processDoubanData: function (moviesDouban, settedKey, categoryTitle){
     var movies = [];
-    console.log(moviesDouban)
     for (var i in moviesDouban.subjects){
       var subject = moviesDouban.subjects[i];
       var title = subject.title;
@@ -73,7 +88,6 @@ Page({
 
   //更多
   onMoreTap: function (event) {
-    console.log(event)
     var category = event.currentTarget.dataset.category;
     wx.navigateTo({
       url: "more-movie/more-movie?category=" + category
