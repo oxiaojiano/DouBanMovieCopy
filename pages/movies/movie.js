@@ -9,6 +9,7 @@ Page({
     inTheaters:{},
     coming:{},
     top250:{},
+    searchUrl:{},
     containerShow:true,
     searchPanelShow: false
   },
@@ -27,14 +28,25 @@ Page({
 
   },
 
-  // onCancelImgTap: function (event) {
-  //   this.setData({
-  //     containerShow: true,
-  //     searchPanelShow: false,
-  //     searchResult: {}
-  //   }
-  //   )
-  // },
+  onCancelImgTap: function (event) {
+    this.setData({
+      containerShow: true,
+      searchPanelShow: false,
+      searchResult: {}
+    }
+    )
+  },
+  onMovieTap: function (event) {
+    var movieId = event.currentTarget.dataset.movieid;
+    wx.navigateTo({
+      url: "movie-detail/movie-detail?id=" + movieId
+    })
+  },
+  onBindBlur: function (event){
+    var text = event.detail.value;
+    var searchUrl = app.globalData.doubanBase + "/v2/movie/search?q=" + text;
+    this.getRequestData(searchUrl, "searchResult", "");
+  },
   onBindFocus: function (event) {
     this.setData({
       containerShow: false,

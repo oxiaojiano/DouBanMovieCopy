@@ -1,5 +1,5 @@
 <import src="movie-list/movie-list-template.wxml" />
-
+<import src="movie-grid/movie-grid-template.wxml" />
 <view>
 
 <view class="search">
@@ -7,7 +7,7 @@
   <input type="text" placeholder="血战钢锯岭、你的名字" 
   placeholder-class="placeholder" bindfocus="onBindFocus"
   bindblur="onBindBlur"/>
-  <image  wx:if="{{searchPanelShow}}"src="/images/icon/xx.png" class="xx-img" bindtap="onCancelImgTap"></image>
+  <image  wx:if="{{searchPanelShow}}"src="/image/xx.png" class="xx-img" bindtap="onCancelImgTap"></image>
 </view>
 <view class="container" wx:if="{{containerShow}}">
   
@@ -16,7 +16,8 @@
     <template is="movieListTemplate" data="{{...top250}}"/>
 
 </view>
-</view>
+
 <view class="search-panel" wx:if="{{searchPanelShow}}">
     <template is="movieGridTemplate" data="{{...searchResult}}"/>
+</view>
 </view>

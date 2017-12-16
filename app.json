@@ -5,7 +5,8 @@
     "pages/posts/post-detail/post-detail",
     "pages/movies/stars/stars",
     "pages/movies/movie",
-    "pages/movies/more-movie/more-movie"
+    "pages/movies/more-movie/more-movie",
+    "pages/movies/movie-detail/movie-detail"
   ],
   "window":{
     "backgroundColor":"#eee",

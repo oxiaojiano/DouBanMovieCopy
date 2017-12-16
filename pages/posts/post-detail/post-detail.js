@@ -54,13 +54,21 @@ Page({
       app.globalData.g_isPlay = true;
       app.globalData.g_currentMusicPostId = that.data.currentPostId;
     })
+    //dang音乐播放完成触发
     wx.onBackgroundAudioStop(function(){
       that.setData({
         isPlay: false
       })
       app.globalData.g_isPlay = false;
       app.globalData.g_currentMusicPostId =null;
-    })
+    }),
+      wx.onBackgroundAudioPause(function () {
+        that.setData({
+          isPlay: false
+        })
+        app.globalData.g_isPlay = false;
+        app.globalData.g_currentMusicPostId = null;
+      }),
 
     console.log(this.data)
   },
